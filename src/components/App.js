@@ -2,8 +2,31 @@ import "../styles/App.scss";
 import image from "../images/title.png";
 import logo from "../images/logo-adalab.png";
 import scrollDown from "../images/ico-scroll-down.svg";
+import { useState } from 'react';
 
 function App() {
+  const [user, setUser] = useState({
+    name: '',
+    job: '',
+    phone: '',
+    email: '',
+    linkedin: '',
+    github: '',
+
+  });
+  if (user.name === '') {
+    setUser({ name: 'Nombre Apellido' })
+  }
+  if (user.job === '') {
+    setUser({ job: 'front-end Unicorn' })
+  }
+  const handleInput = (event) => {
+    event.preventDefault();
+    const inputValue = event.target.value;
+    const inputName = event.target.name;
+    setUser({ ...user, [inputName]: inputValue });
+
+  };
   return (
     <div>
       <header className="headerCreate">
@@ -33,8 +56,8 @@ function App() {
           </button>
           <article className="js_card_article card__article palette1">
             <div className="header-card card__article--data">
-              <h2 className="name js_card_name">Nombre apellido</h2>
-              <h3 className="text js_card_job">Front-end developer</h3>
+              <h2 className="name js_card_name">{user.name}</h2>
+              <h3 className="text js_card_job">{user.job}</h3>
             </div>
             <div className="card__article--photo js_card_img js__profile-image"></div>
             <nav className="card__article--links">
@@ -129,75 +152,75 @@ function App() {
           {/* DISEÑA */}
           {/* RELLENA */}
 
-    <fieldset>
+          <fieldset>
 
-    <div className="buttonFill js-fillClick">
-        <legend className="buttonFill__title"><i className="fa-regular fa-keyboard"></i>Rellena</legend>
-        <img src={scrollDown} className="buttonFill__arrow js-arrow-fill" alt=""/>
-    </div>
+            <div className="buttonFill js-fillClick">
+              <legend className="buttonFill__title"><i className="fa-regular fa-keyboard"></i>Rellena</legend>
+              <img src={scrollDown} className="buttonFill__arrow js-arrow-fill" alt="" />
+            </div>
 
-    <div action="" className="fill js-fill">
-        <label htmlFor="full_name" className="fill__infoLabel">Nombre completo</label>
-        <input type="text" id="full_name" name="name" className="fill__infoInput js_input_name js_inputReset"
-            placeholder="Nombre Apellido" required autoComplete="name"/>
+            <div action="" className="fill js-fill">
+              <label htmlFor="full_name" className="fill__infoLabel">Nombre completo</label>
+              <input type="text" id="full_name" name="name" className="fill__infoInput js_input_name js_inputReset"
+                placeholder="Nombre Apellido" required autoComplete="name" onInput={handleInput} />
 
-        <label htmlFor="job" className="fill__infoLabel">Puesto</label>
-        <input type="text" id="job" name="job" className="fill__infoInput js_input_job js_inputReset" placeholder="Full stack developer"
-            required/>
+              <label htmlFor="job" className="fill__infoLabel">Puesto</label>
+              <input type="text" id="job" name="job" className="fill__infoInput js_input_job js_inputReset" placeholder="Full stack developer"
+                required onInput={handleInput} />
 
-        <label htmlFor="imageForm" className="fill__infoLabel">Imagen de perfil</label>
-        <div className="fill__action ">
-            <label htmlFor="imageForm" className="fill__infoLabel fill__action--labelInput">Añadir imagen</label>
-            <input type="file" accept="image/*"
-                className="fill__infoInput fill__action--imageInput js_input_img js__profile-upload-btn js_inputReset" id="imageForm"
-                name="img"/>
-            <div className="fill__action--preview js__profile-preview"> </div>
-        </div>
+              <label htmlFor="imageForm" className="fill__infoLabel">Imagen de perfil</label>
+              <div className="fill__action ">
+                <label htmlFor="imageForm" className="fill__infoLabel fill__action--labelInput">Añadir imagen</label>
+                <input type="file" accept="image/*"
+                  className="fill__infoInput fill__action--imageInput js_input_img js__profile-upload-btn js_inputReset" id="imageForm"
+                  name="img" />
+                <div className="fill__action--preview js__profile-preview"> </div>
+              </div>
 
-        <label htmlFor="email" className="fill__infoLabel">Email</label>
-        <input type="email" id="email" name="email" className="fill__infoInput js_input_email js_inputReset"
-            placeholder="ejemplo@dominio.tld" autoComplete="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
-        <small className="fill__small js-small-text"></small>
+              <label htmlFor="email" className="fill__infoLabel">Email</label>
+              <input type="email" id="email" name="email" className="fill__infoInput js_input_email js_inputReset"
+                placeholder="ejemplo@dominio.tld" autoComplete="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" onInput={handleInput} />
+              <small className="fill__small js-small-text"></small>
 
-        <label htmlFor="phone" className="fill__infoLabel">Teléfono</label>
-        <input type="tel" id="phone" name="phone" className="fill__infoInput js_input_phone js_inputReset" placeholder="XXXXXXXXX"
-            autoComplete="tel" required pattern="[6-9]{1}[0-9]{8}"/>
-        <small className="fill__small js-small-text"></small>
+              <label htmlFor="phone" className="fill__infoLabel">Teléfono</label>
+              <input type="tel" id="phone" name="phone" className="fill__infoInput js_input_phone js_inputReset" placeholder="XXXXXXXXX"
+                autoComplete="tel" required pattern="[6-9]{1}[0-9]{8}" onInput={handleInput} />
+              <small className="fill__small js-small-text"></small>
 
-        <label htmlFor="linkedin" className="fill__infoLabel">Linkedin</label>
-        <input type="text" id="linkedin" name="linkedin" className="fill__infoInput js_input_linkedin js_inputReset" placeholder="usuario"
-            autoComplete="url"/>
+              <label htmlFor="linkedin" className="fill__infoLabel">Linkedin</label>
+              <input type="text" id="linkedin" name="linkedin" className="fill__infoInput js_input_linkedin js_inputReset" placeholder="usuario"
+                autoComplete="url" onInput={handleInput} />
 
-        <label htmlFor="github" className="fill__infoLabel">Github</label>
-        <input type="text" id="github" name="github" className="fill__infoInput js_input_github js_inputReset" placeholder="usuario"
-            autoComplete="url"/>
-    </div>
-    </fieldset>
+              <label htmlFor="github" className="fill__infoLabel">Github</label>
+              <input type="text" id="github" name="github" className="fill__infoInput js_input_github js_inputReset" placeholder="usuario"
+                autoComplete="url" onInput={handleInput} />
+            </div>
+          </fieldset>
 
           {/* RELLENA */}
           {/* COMPARTE */}
 
           <fieldset className="share">
-  <section className="buttonShare js-shareClick">
-    <p className="buttonShare__title"><i className="fa-solid fa-share-nodes"></i> Comparte </p>
-    <img src={scrollDown} className="buttonShare__arrow js-arrow-share" alt=""/>
-  </section>
+            <section className="buttonShare js-shareClick">
+              <p className="buttonShare__title"><i className="fa-solid fa-share-nodes"></i> Comparte </p>
+              <img src={scrollDown} className="buttonShare__arrow js-arrow-share" alt="" />
+            </section>
 
-  <section className="buttonComparte js-share">
-    <a href="" className="linkComparte js-linkCreated"><i className="fa-regular fa-address-card"></i>Crear Tarjeta</a>
-    <article className="cardCreated js-cardCreated hidden js-share">
-      <h3 className="cardCreated_text js-textError"></h3>
-      <a className="cardCreated_link js-shareUrl" href="" target="_blank"></a>
-      <a className="cardCreated_button js-twitter hidden" target="_blank"><i className="fa-brands fa-twitter" href=""></i>Compartir en
-        twitter</a>
-    </article>
+            <section className="buttonComparte js-share">
+              <a href="" className="linkComparte js-linkCreated"><i className="fa-regular fa-address-card"></i>Crear Tarjeta</a>
+              <article className="cardCreated js-cardCreated hidden js-share">
+                <h3 className="cardCreated_text js-textError"></h3>
+                <a className="cardCreated_link js-shareUrl" href="" target="_blank"></a>
+                <a className="cardCreated_button js-twitter hidden" target="_blank"><i className="fa-brands fa-twitter" href=""></i>Compartir en
+                  twitter</a>
+              </article>
 
-  </section>
+            </section>
 
-</fieldset>
+          </fieldset>
 
           {/* COMPARTE */}
-          
+
           {/* <include src="./partials/fieldset-Diseña.html"></include>
         <include src="./partials/fieldset-Rellena.html"></include>
         <include src="./partials/fieldset-Comparte.html"></include> */}
