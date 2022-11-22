@@ -133,7 +133,7 @@ function App() {
 
     <div className="buttonFill js-fillClick">
         <legend className="buttonFill__title"><i className="fa-regular fa-keyboard"></i>Rellena</legend>
-        <img src="./assets/images/ico-scroll-down.svg" className="buttonFill__arrow js-arrow-fill" alt=""/>
+        <img src={scrollDown} className="buttonFill__arrow js-arrow-fill" alt=""/>
     </div>
 
     <div action="" className="fill js-fill">
@@ -180,7 +180,7 @@ function App() {
           <fieldset className="share">
   <section className="buttonShare js-shareClick">
     <p className="buttonShare__title"><i className="fa-solid fa-share-nodes"></i> Comparte </p>
-    <img src="./assets/images/ico-scroll-down.svg" className="buttonShare__arrow js-arrow-share" alt=""/>
+    <img src={scrollDown} className="buttonShare__arrow js-arrow-share" alt=""/>
   </section>
 
   <section className="buttonComparte js-share">
