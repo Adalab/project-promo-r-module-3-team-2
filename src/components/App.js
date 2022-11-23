@@ -5,6 +5,7 @@ import scrollDown from '../images/ico-scroll-down.svg';
 import { useState } from 'react';
 
 function App() {
+  const hola = '';
   const [user, setUser] = useState({
     name: '',
     job: '',
