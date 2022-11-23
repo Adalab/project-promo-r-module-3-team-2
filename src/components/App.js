@@ -5,7 +5,6 @@ import scrollDown from '../images/ico-scroll-down.svg';
 import { useState } from 'react';
 
 function App() {
-  const hola = '';
   const [user, setUser] = useState({
     name: '',
     job: '',
@@ -23,6 +22,7 @@ function App() {
   };
   return (
     <div>
+      {/* HEADER */}
       <header className="headerCreate">
         <a href="#">
           <img
@@ -32,10 +32,6 @@ function App() {
           />
         </a>
       </header>
-
-      {/* HEADER */}
-
-      {/* TARJETA */}
 
       <main className="mainCreate">
         {/* TARJETA */}
@@ -78,7 +74,6 @@ function App() {
         {/* CUESTIONARIO */}
         <form className="mainCreate__design">
           {/* DISEÑA */}
-
           <fieldset className="design">
             <div className="buttonDesign js-designClick">
               <legend className="buttonDesign__title">
@@ -144,9 +139,8 @@ function App() {
               </div>
             </section>
           </fieldset>
-          {/* DISEÑA */}
-          {/* RELLENA */}
 
+          {/* RELLENA */}
           <fieldset>
             <div className="buttonFill js-fillClick">
               <legend className="buttonFill__title">
@@ -171,6 +165,7 @@ function App() {
                 placeholder="Nombre Apellido"
                 required
                 autoComplete="name"
+                onInput={handleInput}
               />
 
               <label htmlFor="job" className="fill__infoLabel">
@@ -183,6 +178,7 @@ function App() {
                 className="fill__infoInput js_input_job js_inputReset"
                 placeholder="Full stack developer"
                 required
+                onInput={handleInput}
               />
 
               <label htmlFor="imageForm" className="fill__infoLabel">
@@ -219,6 +215,7 @@ function App() {
                 autoComplete="email"
                 required
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                onInput={handleInput}
               />
               <small className="fill__small js-small-text"></small>
 
@@ -234,6 +231,7 @@ function App() {
                 autoComplete="tel"
                 required
                 pattern="[6-9]{1}[0-9]{8}"
+                onInput={handleInput}
               />
               <small className="fill__small js-small-text"></small>
 
@@ -247,6 +245,7 @@ function App() {
                 className="fill__infoInput js_input_linkedin js_inputReset"
                 placeholder="usuario"
                 autoComplete="url"
+                onInput={handleInput}
               />
 
               <label htmlFor="github" className="fill__infoLabel">
@@ -259,13 +258,12 @@ function App() {
                 className="fill__infoInput js_input_github js_inputReset"
                 placeholder="usuario"
                 autoComplete="url"
+                onInput={handleInput}
               />
             </div>
           </fieldset>
 
-          {/* RELLENA */}
           {/* COMPARTE */}
-
           <fieldset className="share">
             <section className="buttonShare js-shareClick">
               <p className="buttonShare__title">
@@ -299,17 +297,10 @@ function App() {
               </article>
             </section>
           </fieldset>
-
-          {/* COMPARTE */}
-
-          {/* <include src="./partials/fieldset-Diseña.html"></include>
-        <include src="./partials/fieldset-Rellena.html"></include>
-        <include src="./partials/fieldset-Comparte.html"></include> */}
         </form>
       </main>
 
       {/* FOOTER */}
-
       <footer className="footer">
         <small className="footer__small">
           Awesome profile-cards &copy; 2022
