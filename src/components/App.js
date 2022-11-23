@@ -52,8 +52,12 @@ function App() {
           </button>
           <article className="js_card_article card__article palette1">
             <div className="header-card card__article--data">
-              <h2 className="name js_card_name">{user.name}</h2>
-              <h3 className="text js_card_job">{user.job}</h3>
+              <h2 className="name js_card_name">
+                {user.name === '' ? 'Nombre Apellidos' : user.name}
+              </h2>
+              <h3 className="text js_card_job">
+                {user.job === '' ? 'Front-end Developer' : user.job}
+              </h3>
             </div>
             <div className="card__article--photo js_card_img js__profile-image"></div>
             <nav className="card__article--links">
@@ -175,6 +179,7 @@ function App() {
                 placeholder="Nombre Apellido"
                 required
                 autoComplete="name"
+                value={user.name}
                 onInput={handleInput}
               />
 
@@ -188,6 +193,7 @@ function App() {
                 className="fill__infoInput js_input_job js_inputReset"
                 placeholder="Full stack developer"
                 required
+                value={user.job}
                 onInput={handleInput}
               />
 
@@ -225,6 +231,7 @@ function App() {
                 autoComplete="email"
                 required
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                value={user.email}
                 onInput={handleInput}
               />
               <small className="fill__small js-small-text"></small>
@@ -241,6 +248,7 @@ function App() {
                 autoComplete="tel"
                 required
                 pattern="[6-9]{1}[0-9]{8}"
+                value={user.phone}
                 onInput={handleInput}
               />
               <small className="fill__small js-small-text"></small>
@@ -255,6 +263,7 @@ function App() {
                 className="fill__infoInput js_input_linkedin js_inputReset"
                 placeholder="usuario"
                 autoComplete="url"
+                value={user.linkedin}
                 onInput={handleInput}
               />
 
@@ -268,6 +277,7 @@ function App() {
                 className="fill__infoInput js_input_github js_inputReset"
                 placeholder="usuario"
                 autoComplete="url"
+                value={user.github}
                 onInput={handleInput}
               />
             </div>
