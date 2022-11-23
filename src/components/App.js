@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 function App() {
   const [user, setUser] = useState({
+    palette: '1',
     name: '',
     job: '',
     phone: '',
@@ -14,11 +15,15 @@ function App() {
     github: '',
   });
 
-  const handleInput = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
+  };
+
+  const handleInput = (event) => {
     const inputValue = event.target.value;
     const inputName = event.target.name;
     setUser({ ...user, [inputName]: inputValue });
+    console.log(user);
   };
   return (
     <div>
@@ -72,7 +77,7 @@ function App() {
         </section>
 
         {/* CUESTIONARIO */}
-        <form className="mainCreate__design">
+        <form className="mainCreate__design" onSubmit={handleSubmit}>
           {/* DISEÑA */}
           <fieldset className="design">
             <div className="buttonDesign js-designClick">
@@ -97,8 +102,9 @@ function App() {
                     className="colorPalette__input1 js-palette1"
                     type="radio"
                     value="1"
-                    name="colorpalette"
-                    defaultChecked={true}
+                    name="palette"
+                    checked={user.palette === '1'}
+                    onChange={handleInput}
                   />
                   <section className="colorsBoxOne">
                     <div className="rectangle__a1"></div>
@@ -114,7 +120,9 @@ function App() {
                   className="js-palette2 colorPalette__input2 "
                   type="radio"
                   value="2"
-                  name="colorpalette"
+                  name="palette"
+                  checked={user.palette === '2'}
+                  onChange={handleInput}
                 />
                 <section className="colorsBoxTwo">
                   <div className="rectangle__b1"></div>
@@ -129,7 +137,9 @@ function App() {
                   className="js-palette3 colorPalette__input3"
                   type="radio"
                   value="3"
-                  name="colorpalette"
+                  name="palette"
+                  checked={user.palette === '3'}
+                  onChange={handleInput}
                 />
                 <section className="colorsBoxThree">
                   <div className="rectangle__c1"></div>
