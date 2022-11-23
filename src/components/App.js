@@ -13,9 +13,10 @@ function App() {
     linkedin: '',
     github: '',
   });
-
-  const handleInput = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
+  };
+  const handleInput = (event) => {
     const inputValue = event.target.value;
     const inputName = event.target.name;
     setUser({ ...user, [inputName]: inputValue });
@@ -75,7 +76,7 @@ function App() {
         </section>
 
         {/* CUESTIONARIO */}
-        <form className="mainCreate__design">
+        <form className="mainCreate__design" onSubmit={handleSubmit}>
           {/* DISEÑA */}
 
           <fieldset className="design">
