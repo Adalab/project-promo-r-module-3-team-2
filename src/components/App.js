@@ -2,11 +2,26 @@ import '../styles/App.scss';
 import image from '../images/title.png';
 import logo from '../images/logo-adalab.png';
 import scrollDown from '../images/ico-scroll-down.svg';
+import { useState } from 'react';
 
 function App() {
+  const [user, setUser] = useState({
+    name: '',
+    job: '',
+    phone: '',
+    email: '',
+    linkedin: '',
+    github: '',
+  });
+
+  const handleInput = (event) => {
+    event.preventDefault();
+    const inputValue = event.target.value;
+    const inputName = event.target.name;
+    setUser({ ...user, [inputName]: inputValue });
+  };
   return (
     <div>
-      {/* HEADER */}
       <header className="headerCreate">
         <a href="#">
           <img
@@ -17,8 +32,12 @@ function App() {
         </a>
       </header>
 
+      {/* HEADER */}
+
       {/* TARJETA */}
+
       <main className="mainCreate">
+        {/* TARJETA */}
         <section className="mainCreate__card card">
           <button
             className="card__button js_reset-btn"
@@ -31,8 +50,8 @@ function App() {
           </button>
           <article className="js_card_article card__article palette1">
             <div className="header-card card__article--data">
-              <h2 className="name js_card_name">Nombre apellido</h2>
-              <h3 className="text js_card_job">Front-end developer</h3>
+              <h2 className="name js_card_name">{user.name}</h2>
+              <h3 className="text js_card_job">{user.job}</h3>
             </div>
             <div className="card__article--photo js_card_img js__profile-image"></div>
             <nav className="card__article--links">
@@ -58,6 +77,7 @@ function App() {
         {/* CUESTIONARIO */}
         <form className="mainCreate__design">
           {/* DISEÑA */}
+
           <fieldset className="design">
             <div className="buttonDesign js-designClick">
               <legend className="buttonDesign__title">
@@ -123,8 +143,9 @@ function App() {
               </div>
             </section>
           </fieldset>
-
+          {/* DISEÑA */}
           {/* RELLENA */}
+
           <fieldset>
             <div className="buttonFill js-fillClick">
               <legend className="buttonFill__title">
@@ -241,7 +262,9 @@ function App() {
             </div>
           </fieldset>
 
+          {/* RELLENA */}
           {/* COMPARTE */}
+
           <fieldset className="share">
             <section className="buttonShare js-shareClick">
               <p className="buttonShare__title">
@@ -275,10 +298,17 @@ function App() {
               </article>
             </section>
           </fieldset>
+
+          {/* COMPARTE */}
+
+          {/* <include src="./partials/fieldset-Diseña.html"></include>
+        <include src="./partials/fieldset-Rellena.html"></include>
+        <include src="./partials/fieldset-Comparte.html"></include> */}
         </form>
       </main>
 
       {/* FOOTER */}
+
       <footer className="footer">
         <small className="footer__small">
           Awesome profile-cards &copy; 2022
