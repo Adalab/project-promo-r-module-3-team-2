@@ -170,6 +170,7 @@ function App() {
                 placeholder="Nombre Apellido"
                 required
                 autoComplete="name"
+                onInput={handleInput}
               />
 
               <label htmlFor="job" className="fill__infoLabel">
