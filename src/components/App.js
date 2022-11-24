@@ -18,6 +18,9 @@ function App() {
   const [designIsOpen, setDesignIsOpen] = useState(true);
   const [fillIsOpen, setFillIsOpen] = useState(false);
   const [shareIsOpen, setShareIsOpen] = useState(false);
+  const [arrowRotateDesign, setArrowRotateDesign] = useState('arrowRotate');
+  const [arrowRotateFill, setArrowRotateFill] = useState('');
+  const [arrowRotateShare, setArrowRotateShare] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,6 +38,9 @@ function App() {
       setDesignIsOpen(!designIsOpen);
       setFillIsOpen(false);
       setShareIsOpen(false);
+      setArrowRotateDesign('arrowRotate');
+      setArrowRotateFill('');
+      setArrowRotateShare('');
     }
   };
 
@@ -43,6 +49,9 @@ function App() {
       setFillIsOpen(!fillIsOpen);
       setShareIsOpen(false);
       setDesignIsOpen(false);
+      setArrowRotateFill('arrowRotate');
+      setArrowRotateDesign('');
+      setArrowRotateShare('');
     }
   };
 
@@ -51,6 +60,9 @@ function App() {
       setShareIsOpen(!shareIsOpen);
       setFillIsOpen(false);
       setDesignIsOpen(false);
+      setArrowRotateShare('arrowRotate');
+      setArrowRotateFill('');
+      setArrowRotateDesign('');
     }
   };
 
@@ -321,74 +333,15 @@ function App() {
           <fieldset className="design">
             <div className="buttonDesign js-designClick" onClick={handleToggleDesign}>
               <legend className="buttonDesign__title">
-                <i className="fa-solid fa-object-ungroup"></i> Diseña{' '}
+                <i className='fa-solid fa-object-ungroup'></i> Diseña{' '}
               </legend>
               <img
                 src={scrollDown}
-                className="buttonDesign__arrow js-arrow-design"
+                className={`buttonDesign__arrow js-arrow-design${arrowRotateDesign}`}
                 alt=""
               />
             </div>
             {renderDesign()}
-            {/*  
-            <section className="largeContainerDesign  js-design">
-              <div className="mediumContainerDesign">
-                <div className="boxDesignColorsLabel">
-                  <span className="colorsText">Colores</span>
-                </div>
-                <div className="colorPalette__container1">
-                  <input
-                    id="palette1"
-                    className="colorPalette__input1 js-palette1"
-                    type="radio"
-                    value="1"
-                    name="palette"
-                    checked={user.palette === '1'}
-                    onChange={handleInput}
-                  />
-                  <section className="colorsBoxOne">
-                    <div className="rectangle__a1"></div>
-                    <div className="rectangle__a2"></div>
-                    <div className="rectangle__a3"></div>
-                  </section>
-                </div>
-              </div>
-
-              <div className="colorPalette__container2">
-                <input
-                  id="palette2"
-                  className="js-palette2 colorPalette__input2 "
-                  type="radio"
-                  value="2"
-                  name="palette"
-                  checked={user.palette === '2'}
-                  onChange={handleInput}
-                />
-                <section className="colorsBoxTwo">
-                  <div className="rectangle__b1"></div>
-                  <div className="rectangle__b2"></div>
-                  <div className="rectangle__b3"></div>
-                </section>
-              </div>
-
-              <div className="colorPalette__container3">
-                <input
-                  id="palette3"
-                  className="js-palette3 colorPalette__input3"
-                  type="radio"
-                  value="3"
-                  name="palette"
-                  checked={user.palette === '3'}
-                  onChange={handleInput}
-                />
-                <section className="colorsBoxThree">
-                  <div className="rectangle__c1"></div>
-                  <div className="rectangle__c2"></div>
-                  <div className="rectangle__c3"></div>
-                </section>
-              </div>
-            </section>
-            */}
           </fieldset>
 
           {/* RELLENA */}
@@ -399,127 +352,12 @@ function App() {
               </legend>
               <img
                 src={scrollDown}
-                className="buttonFill__arrow js-arrow-fill"
+                className={`buttonFill__arrow js-arrow-fill ${arrowRotateFill}`}
                 alt=""
               />
             </div>
             {renderFill()}
-            {/*  
-            <div action="" className="fill js-fill">
-              <label htmlFor="full_name" className="fill__infoLabel">
-                Nombre completo
-              </label>
-              <input
-                type="text"
-                id="full_name"
-                name="name"
-                className="fill__infoInput js_input_name js_inputReset"
-                placeholder="Nombre Apellido"
-                required
-                autoComplete="name"
-                value={user.name}
-                onInput={handleInput}
-              />
 
-              <label htmlFor="job" className="fill__infoLabel">
-                Puesto
-              </label>
-              <input
-                type="text"
-                id="job"
-                name="job"
-                className="fill__infoInput js_input_job js_inputReset"
-                placeholder="Full stack developer"
-                required
-                value={user.job}
-                onInput={handleInput}
-              />
-
-              <label htmlFor="imageForm" className="fill__infoLabel">
-                Imagen de perfil
-              </label>
-              <div className="fill__action ">
-                <label
-                  htmlFor="imageForm"
-                  className="fill__infoLabel fill__action--labelInput"
-                >
-                  Añadir imagen
-                </label>
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="fill__infoInput fill__action--imageInput js_input_img js__profile-upload-btn js_inputReset"
-                  id="imageForm"
-                  name="img"
-                />
-                <div className="fill__action--preview js__profile-preview">
-                  {' '}
-                </div>
-              </div>
-
-              <label htmlFor="email" className="fill__infoLabel">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="fill__infoInput js_input_email js_inputReset"
-                placeholder="ejemplo@dominio.tld"
-                autoComplete="email"
-                required
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                value={user.email}
-                onInput={handleInput}
-              />
-              <small className="fill__small js-small-text"></small>
-
-              <label htmlFor="phone" className="fill__infoLabel">
-                Teléfono
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                className="fill__infoInput js_input_phone js_inputReset"
-                placeholder="XXXXXXXXX"
-                autoComplete="tel"
-                required
-                pattern="[6-9]{1}[0-9]{8}"
-                value={user.phone}
-                onInput={handleInput}
-              />
-              <small className="fill__small js-small-text"></small>
-
-              <label htmlFor="linkedin" className="fill__infoLabel">
-                Linkedin
-              </label>
-              <input
-                type="text"
-                id="linkedin"
-                name="linkedin"
-                className="fill__infoInput js_input_linkedin js_inputReset"
-                placeholder="usuario"
-                autoComplete="url"
-                value={user.linkedin}
-                onInput={handleInput}
-              />
-
-              <label htmlFor="github" className="fill__infoLabel">
-                Github
-              </label>
-              <input
-                type="text"
-                id="github"
-                name="github"
-                className="fill__infoInput js_input_github js_inputReset"
-                placeholder="usuario"
-                autoComplete="url"
-                value={user.github}
-                onInput={handleInput}
-              />
-            </div>
-            */}
           </fieldset>
 
           {/* COMPARTE */}
@@ -530,33 +368,11 @@ function App() {
               </p>
               <img
                 src={scrollDown}
-                className="buttonShare__arrow js-arrow-share"
+                className={`buttonShare__arrow js-arrow-share ${arrowRotateShare}`}
                 alt=""
               />
             </section>
             {renderShare()}
-            {/*  
-            <section className="buttonComparte js-share">
-              <a href="" className="linkComparte js-linkCreated">
-                <i className="fa-regular fa-address-card"></i>Crear Tarjeta
-              </a>
-              <article className="cardCreated js-cardCreated hidden js-share">
-                <h3 className="cardCreated_text js-textError"></h3>
-                <a
-                  className="cardCreated_link js-shareUrl"
-                  href=""
-                  target="_blank"
-                ></a>
-                <a
-                  className="cardCreated_button js-twitter hidden"
-                  target="_blank"
-                >
-                  <i className="fa-brands fa-twitter" href=""></i>Compartir en
-                  twitter
-                </a>
-              </article>
-            </section>
-            */}
           </fieldset>
         </form>
       </main>
