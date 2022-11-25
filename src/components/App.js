@@ -33,6 +33,19 @@ function App() {
     console.log(user);
   };
 
+  const handleReset = (event) => {
+    event.preventDefault();
+    setUser ({
+      palette: '1',
+      name: '',
+      job: '',
+      phone: '',
+      email: '',
+      linkedin: '',
+      github: '',
+    });
+  };
+
   const handleToggleDesign = () => {
     if (designIsOpen === false) {
       setDesignIsOpen(!designIsOpen);
@@ -294,6 +307,7 @@ function App() {
             title="Reset"
             name="Reset"
             type="button"
+            onClick={handleReset}
           >
             <i className="far fa-trash-alt"></i>
             Reset
