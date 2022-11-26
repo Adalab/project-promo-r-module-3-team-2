@@ -312,7 +312,7 @@ function App() {
             <i className="far fa-trash-alt"></i>
             Reset
           </button>
-          <article className="js_card_article card__article palette1">
+          <article className={`js_card_article card__article palette${user.palette}`}>
             <div className="header-card card__article--data">
               <h2 className="name js_card_name">
                 {user.name === '' ? 'Nombre Apellidos' : user.name}
