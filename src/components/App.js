@@ -323,19 +323,19 @@ function App() {
             </div>
             <div className="card__article--photo js_card_img js__profile-image"></div>
             <nav className="card__article--links">
-              <a className="js_card_phone" href="">
+              <a className="js_card_phone" href={`tel:${user.phone}`}>
                 <i className="fa-solid fa-mobile-screen-button icon"></i>
               </a>
 
-              <a className="js_card_email" href="">
+              <a className="js_card_email" href={`mailto:${user.email}`}>
                 <i className="fa-regular fa-envelope icon"></i>
               </a>
 
-              <a className="js_card_linkedin" href="" target="_blank">
+              <a className="js_card_linkedin" href={user.linkedin} target="_blank">
                 <i className="fa-brands fa-linkedin-in icon"></i>
               </a>
 
-              <a className="js_card_github" href="" target="_blank">
+              <a className="js_card_github" href={user.github} target="_blank">
                 <i className="fa-brands fa-github-alt icon"></i>
               </a>
             </nav>
