@@ -21,6 +21,8 @@ function App() {
   const [arrowRotateDesign, setArrowRotateDesign] = useState('arrowRotate');
   const [arrowRotateFill, setArrowRotateFill] = useState('');
   const [arrowRotateShare, setArrowRotateShare] = useState('');
+  const [errorEmail, setErrorEmail] = useState(false);
+  const [errorPhone, setErrorPhone] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,6 +33,36 @@ function App() {
     const inputName = event.target.name;
     setUser({ ...user, [inputName]: inputValue });
     console.log(user);
+
+    if (inputName === 'phone') {
+      const regExPhone = /[6-9]{1}[0-9]{8}/; //Se añade una comprobación para que vea si el valor del teléfono cumple con la expresión regular dada
+      if (regExPhone.test(inputValue) || inputValue === '') {
+        setErrorPhone(false);
+      } else {
+        //Si el valor no cumple con la expresión regular es visible el siguiente mensaje
+        setErrorPhone(true);
+      }
+    } else if (inputName === 'email') {
+      const regExEmail = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/; //Se añade una comprobación para que vea si el valor del teléfono cumple con la expresión regular dada
+      if (regExEmail.test(inputValue) || inputValue === '') {
+        setErrorEmail(false);
+      } else {
+        //Si el valor no cumple con la expresión regular es visible el siguiente mensaje
+        setErrorEmail(true);
+      }
+
+  }};
+
+  const errorPhoneText = (errorMsg) => {
+    if (errorPhone) {
+      return errorMsg;
+    }
+  };
+
+  const errorEmailText = (errorMsg) => {
+    if (errorEmail) {
+      return errorMsg;
+    }
   };
 
   const handleReset = (event) => {
@@ -211,7 +243,10 @@ function App() {
             value={user.email}
             onInput={handleInput}
           />
-          <small className="fill__small js-small-text"></small>
+          <small className="fill__small js-small-text">
+              {' '}
+              {errorEmailText('El email que has introducido no es correcto.')}
+          </small>
 
           <label htmlFor="phone" className="fill__infoLabel">
             Teléfono
@@ -228,7 +263,10 @@ function App() {
             value={user.phone}
             onInput={handleInput}
           />
-          <small className="fill__small js-small-text"></small>
+          <small className="fill__small js-small-text">
+              {' '}
+              {errorPhoneText('El teléfono que has introducido no es correcto.')}
+          </small>
 
           <label htmlFor="linkedin" className="fill__infoLabel">
             Linkedin
