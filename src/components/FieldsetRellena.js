@@ -1,4 +1,4 @@
-
+import '../styles/components/FieldsetRellena.scss';
 const FieldsetRellena = (props) => {
 
     const errorPhoneText = (errorMsg) => {
