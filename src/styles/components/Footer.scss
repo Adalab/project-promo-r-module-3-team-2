@@ -1,3 +1,7 @@
+@import "../core/functions.scss";
+@import "../core/variables.scss";
+@import "../core/mixin.scss";
+
 .footer {
   background-color: $footer-bg-color;
   bottom: 0;

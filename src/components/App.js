@@ -4,6 +4,8 @@ import scrollDown from '../images/ico-scroll-down.svg';
 import { useState } from 'react';
 import localCard from '../services/api';
 import HeaderCreate from './HeaderCreate';
+import Footer from './Footer';
+
 
 function App() {
   const [user, setUser] = useState({
@@ -440,12 +442,8 @@ function App() {
       </main>
 
       {/* FOOTER */}
-      <footer className="footer">
-        <small className="footer__small">
-          Awesome profile-cards &copy; 2022
-        </small>
-        <img src={logo} className="footer__img" alt="Logo Adalab" />
-      </footer>
+      <Footer></Footer>
+
     </div>
   );
 }
