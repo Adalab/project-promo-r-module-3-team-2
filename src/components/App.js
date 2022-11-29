@@ -4,6 +4,7 @@ import scrollDown from '../images/ico-scroll-down.svg';
 import { useState } from 'react';
 import localCard from '../services/api';
 import HeaderCreate from './HeaderCreate';
+import Design from './Design';
 
 function App() {
   const [user, setUser] = useState({
@@ -36,7 +37,6 @@ function App() {
     const inputName = event.target.name;
     setUser({ ...user, [inputName]: inputValue });
 
-
     if (inputName === 'phone') {
       const regExPhone = /[6-9]{1}[0-9]{8}/; //Se añade una comprobación para que vea si el valor del teléfono cumple con la expresión regular dada
       if (regExPhone.test(inputValue) || inputValue === '') {
@@ -53,7 +53,6 @@ function App() {
         //Si el valor no cumple con la expresión regular es visible el siguiente mensaje
         setErrorEmail(true);
       }
-
     }
   };
 
@@ -81,25 +80,25 @@ function App() {
       github: '',
     });
   };
-  const handleClickCreate = (event) => {//falta comprobar que funciona
+  const handleClickCreate = (event) => {
+    //falta comprobar que funciona
     event.preventDefault();
     localCard(user).then((response) => {
-      console.log(response)
+      console.log(response);
       setFetchResponse(response);
     });
-
   };
 
-  const handleToggleDesign = () => {
-    if (designIsOpen === false) {
-      setDesignIsOpen(!designIsOpen);
-      setFillIsOpen(false);
-      setShareIsOpen(false);
-      setArrowRotateDesign('arrowRotate');
-      setArrowRotateFill('');
-      setArrowRotateShare('');
-    }
-  };
+  // const handleToggleDesign = () => {
+  //   if (designIsOpen === false) {
+  //     setDesignIsOpen(!designIsOpen);
+  //     setFillIsOpen(false);
+  //     setShareIsOpen(false);
+  //     setArrowRotateDesign('arrowRotate');
+  //     setArrowRotateFill('');
+  //     setArrowRotateShare('');
+  //   }
+  // };
 
   const handleToggleFill = () => {
     if (fillIsOpen === false) {
@@ -123,69 +122,69 @@ function App() {
     }
   };
 
-  const renderDesign = () => {
-    if (designIsOpen === true) {
-      return (
-        <section className="largeContainerDesign  js-design">
-          <div className="mediumContainerDesign">
-            <div className="boxDesignColorsLabel">
-              <span className="colorsText">Colores</span>
-            </div>
-            <div className="colorPalette__container1">
-              <input
-                id="palette1"
-                className="colorPalette__input1 js-palette1"
-                type="radio"
-                value="1"
-                name="palette"
-                checked={user.palette === '1'}
-                onChange={handleInput}
-              />
-              <section className="colorsBoxOne">
-                <div className="rectangle__a1"></div>
-                <div className="rectangle__a2"></div>
-                <div className="rectangle__a3"></div>
-              </section>
-            </div>
-          </div>
+  // const renderDesign = () => {
+  //   if (designIsOpen === true) {
+  //     return (
+  //       <section className="largeContainerDesign  js-design">
+  //         <div className="mediumContainerDesign">
+  //           <div className="boxDesignColorsLabel">
+  //             <span className="colorsText">Colores</span>
+  //           </div>
+  //           <div className="colorPalette__container1">
+  //             <input
+  //               id="palette1"
+  //               className="colorPalette__input1 js-palette1"
+  //               type="radio"
+  //               value="1"
+  //               name="palette"
+  //               checked={user.palette === '1'}
+  //               onChange={handleInput}
+  //             />
+  //             <section className="colorsBoxOne">
+  //               <div className="rectangle__a1"></div>
+  //               <div className="rectangle__a2"></div>
+  //               <div className="rectangle__a3"></div>
+  //             </section>
+  //           </div>
+  //         </div>
 
-          <div className="colorPalette__container2">
-            <input
-              id="palette2"
-              className="js-palette2 colorPalette__input2 "
-              type="radio"
-              value="2"
-              name="palette"
-              checked={user.palette === '2'}
-              onChange={handleInput}
-            />
-            <section className="colorsBoxTwo">
-              <div className="rectangle__b1"></div>
-              <div className="rectangle__b2"></div>
-              <div className="rectangle__b3"></div>
-            </section>
-          </div>
+  //         <div className="colorPalette__container2">
+  //           <input
+  //             id="palette2"
+  //             className="js-palette2 colorPalette__input2 "
+  //             type="radio"
+  //             value="2"
+  //             name="palette"
+  //             checked={user.palette === '2'}
+  //             onChange={handleInput}
+  //           />
+  //           <section className="colorsBoxTwo">
+  //             <div className="rectangle__b1"></div>
+  //             <div className="rectangle__b2"></div>
+  //             <div className="rectangle__b3"></div>
+  //           </section>
+  //         </div>
 
-          <div className="colorPalette__container3">
-            <input
-              id="palette3"
-              className="js-palette3 colorPalette__input3"
-              type="radio"
-              value="3"
-              name="palette"
-              checked={user.palette === '3'}
-              onChange={handleInput}
-            />
-            <section className="colorsBoxThree">
-              <div className="rectangle__c1"></div>
-              <div className="rectangle__c2"></div>
-              <div className="rectangle__c3"></div>
-            </section>
-          </div>
-        </section>
-      );
-    }
-  };
+  //         <div className="colorPalette__container3">
+  //           <input
+  //             id="palette3"
+  //             className="js-palette3 colorPalette__input3"
+  //             type="radio"
+  //             value="3"
+  //             name="palette"
+  //             checked={user.palette === '3'}
+  //             onChange={handleInput}
+  //           />
+  //           <section className="colorsBoxThree">
+  //             <div className="rectangle__c1"></div>
+  //             <div className="rectangle__c2"></div>
+  //             <div className="rectangle__c3"></div>
+  //           </section>
+  //         </div>
+  //       </section>
+  //     );
+  //   }
+  // };
 
   const renderFill = () => {
     if (fillIsOpen === true) {
@@ -316,16 +315,18 @@ function App() {
     if (shareIsOpen === true) {
       return (
         <section className="buttonComparte js-share">
-          <a href="" className="linkComparte js-linkCreated" onClick={handleClickCreate}>
+          <a
+            href=""
+            className="linkComparte js-linkCreated"
+            onClick={handleClickCreate}
+          >
             <i className="fa-regular fa-address-card"></i>Crear Tarjeta
           </a>
           <article className="cardCreated js-cardCreated hidden js-share">
             <h3 className="cardCreated_text js-textError"></h3>
-            <a
-              className="cardCreated_link js-shareUrl"
-              href=""
-              target="_blank"
-            >{fetchResponse}</a>
+            <a className="cardCreated_link js-shareUrl" href="" target="_blank">
+              {fetchResponse}
+            </a>
             <a className="cardCreated_button js-twitter hidden" target="_blank">
               <i className="fa-brands fa-twitter" href=""></i>Compartir en
               twitter
@@ -354,7 +355,9 @@ function App() {
             <i className="far fa-trash-alt"></i>
             Reset
           </button>
-          <article className={`js_card_article card__article palette${user.palette}`}>
+          <article
+            className={`js_card_article card__article palette${user.palette}`}
+          >
             <div className="header-card card__article--data">
               <h2 className="name js_card_name">
                 {user.name === '' ? 'Nombre Apellidos' : user.name}
@@ -373,7 +376,11 @@ function App() {
                 <i className="fa-regular fa-envelope icon"></i>
               </a>
 
-              <a className="js_card_linkedin" href={user.linkedin} target="_blank">
+              <a
+                className="js_card_linkedin"
+                href={user.linkedin}
+                target="_blank"
+              >
                 <i className="fa-brands fa-linkedin-in icon"></i>
               </a>
 
@@ -387,7 +394,20 @@ function App() {
         {/* CUESTIONARIO */}
         <form className="mainCreate__design" onSubmit={handleSubmit}>
           {/* DISEÑA */}
-          <fieldset className="design">
+          <Design
+            setDesignIsOpen={setDesignIsOpen}
+            setFillIsOpen={setFillIsOpen}
+            setShareIsOpen={setShareIsOpen}
+            setArrowRotateDesign={setArrowRotateDesign}
+            setArrowRotateFill={setArrowRotateFill}
+            setArrowRotateShare={setArrowRotateShare}
+            designIsOpen={designIsOpen}
+            userpalette={user.palette}
+            scrollDown={scrollDown}
+            arrowRotateDesign={arrowRotateDesign}
+            handleInput={handleInput}
+          ></Design>
+          {/* <fieldset className="design">
             <div
               className="buttonDesign js-designClick"
               onClick={handleToggleDesign}
@@ -402,7 +422,7 @@ function App() {
               />
             </div>
             {renderDesign()}
-          </fieldset>
+          </fieldset> */}
 
           {/* RELLENA */}
           <fieldset>
