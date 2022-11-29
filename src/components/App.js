@@ -4,6 +4,7 @@ import scrollDown from '../images/ico-scroll-down.svg';
 import { useState } from 'react';
 import localCard from '../services/api';
 import HeaderCreate from './HeaderCreate';
+import FieldsetRellena from './FieldsetRellena';
 
 function App() {
   const [user, setUser] = useState({
@@ -54,18 +55,6 @@ function App() {
         setErrorEmail(true);
       }
 
-    }
-  };
-
-  const errorPhoneText = (errorMsg) => {
-    if (errorPhone) {
-      return errorMsg;
-    }
-  };
-
-  const errorEmailText = (errorMsg) => {
-    if (errorEmail) {
-      return errorMsg;
     }
   };
 
@@ -187,130 +176,7 @@ function App() {
     }
   };
 
-  const renderFill = () => {
-    if (fillIsOpen === true) {
-      return (
-        <div action="" className="fill js-fill">
-          <label htmlFor="full_name" className="fill__infoLabel">
-            Nombre completo
-          </label>
-          <input
-            type="text"
-            id="full_name"
-            name="name"
-            className="fill__infoInput js_input_name js_inputReset"
-            placeholder="Nombre Apellido"
-            required
-            autoComplete="name"
-            value={user.name}
-            onInput={handleInput}
-          />
-
-          <label htmlFor="job" className="fill__infoLabel">
-            Puesto
-          </label>
-          <input
-            type="text"
-            id="job"
-            name="job"
-            className="fill__infoInput js_input_job js_inputReset"
-            placeholder="Full stack developer"
-            required
-            value={user.job}
-            onInput={handleInput}
-          />
-
-          <label htmlFor="imageForm" className="fill__infoLabel">
-            Imagen de perfil
-          </label>
-          <div className="fill__action ">
-            <label
-              htmlFor="imageForm"
-              className="fill__infoLabel fill__action--labelInput"
-            >
-              Añadir imagen
-            </label>
-            <input
-              type="file"
-              accept="image/*"
-              className="fill__infoInput fill__action--imageInput js_input_img js__profile-upload-btn js_inputReset"
-              id="imageForm"
-              name="img"
-            />
-            <div className="fill__action--preview js__profile-preview"> </div>
-          </div>
-
-          <label htmlFor="email" className="fill__infoLabel">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            className="fill__infoInput js_input_email js_inputReset"
-            placeholder="ejemplo@dominio.tld"
-            autoComplete="email"
-            required
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-            value={user.email}
-            onInput={handleInput}
-          />
-          <small className="fill__small js-small-text">
-            {' '}
-            {errorEmailText('El email que has introducido no es correcto.')}
-          </small>
-
-          <label htmlFor="phone" className="fill__infoLabel">
-            Teléfono
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            className="fill__infoInput js_input_phone js_inputReset"
-            placeholder="XXXXXXXXX"
-            autoComplete="tel"
-            required
-            pattern="[6-9]{1}[0-9]{8}"
-            value={user.phone}
-            onInput={handleInput}
-          />
-          <small className="fill__small js-small-text">
-            {' '}
-            {errorPhoneText('El teléfono que has introducido no es correcto.')}
-          </small>
-
-          <label htmlFor="linkedin" className="fill__infoLabel">
-            Linkedin
-          </label>
-          <input
-            type="text"
-            id="linkedin"
-            name="linkedin"
-            className="fill__infoInput js_input_linkedin js_inputReset"
-            placeholder="usuario"
-            autoComplete="url"
-            value={user.linkedin}
-            onInput={handleInput}
-          />
-
-          <label htmlFor="github" className="fill__infoLabel">
-            Github
-          </label>
-          <input
-            type="text"
-            id="github"
-            name="github"
-            className="fill__infoInput js_input_github js_inputReset"
-            placeholder="usuario"
-            autoComplete="url"
-            value={user.github}
-            onInput={handleInput}
-          />
-        </div>
-      );
-    }
-  };
+  // RenderFill
 
   const renderShare = () => {
     if (shareIsOpen === true) {
@@ -405,19 +271,25 @@ function App() {
           </fieldset>
 
           {/* RELLENA */}
-          <fieldset>
-            <div className="buttonFill js-fillClick" onClick={handleToggleFill}>
-              <legend className="buttonFill__title">
-                <i className="fa-regular fa-keyboard"></i>Rellena
-              </legend>
-              <img
-                src={scrollDown}
-                className={`buttonFill__arrow js-arrow-fill ${arrowRotateFill}`}
-                alt=""
-              />
-            </div>
-            {renderFill()}
-          </fieldset>
+         
+         <FieldsetRellena
+         
+         fillState = {fillIsOpen}
+         valueName = {user.name}
+         valueJob = {user.job}
+         valueEmail = {user.email}
+         valuePhone = {user.phone}
+         valueLinkedin = {user.linkedin}
+         valueGithub = {user.github}
+         event = {handleInput}
+         eventClick = {handleToggleFill}
+         src={scrollDown}
+         arrowState={arrowRotateFill}
+         reponse={fetchResponse}
+         errorPhone = {errorPhone}
+         errorEmail = {errorEmail}
+
+         />
 
           {/* COMPARTE */}
           <fieldset className="share">
