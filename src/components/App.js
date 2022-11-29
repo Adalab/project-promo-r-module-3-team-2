@@ -1,9 +1,9 @@
 import '../styles/App.scss';
-import image from '../images/title.png';
 import logo from '../images/logo-adalab.png';
 import scrollDown from '../images/ico-scroll-down.svg';
 import { useState } from 'react';
 import localCard from '../services/api';
+import HeaderCreate from './HeaderCreate';
 
 function App() {
   const [user, setUser] = useState({
@@ -339,15 +339,7 @@ function App() {
   return (
     <div>
       {/* HEADER */}
-      <header className="headerCreate">
-        <a href="#">
-          <img
-            src={image}
-            className="headerCreate__img"
-            alt="Logo Awesome profile-cards"
-          />
-        </a>
-      </header>
+      <HeaderCreate></HeaderCreate>
 
       <main className="mainCreate">
         {/* TARJETA */}
