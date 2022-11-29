@@ -4,6 +4,7 @@ import scrollDown from '../images/ico-scroll-down.svg';
 import { useState } from 'react';
 import localCard from '../services/api';
 import HeaderCreate from './HeaderCreate';
+import SectionCard from './SectionCard';
 
 function App() {
   const [user, setUser] = useState({
@@ -340,49 +341,18 @@ function App() {
     <div>
       {/* HEADER */}
       <HeaderCreate></HeaderCreate>
-
       <main className="mainCreate">
         {/* TARJETA */}
-        <section className="mainCreate__card card">
-          <button
-            className="card__button js_reset-btn"
-            title="Reset"
-            name="Reset"
-            type="button"
-            onClick={handleReset}
-          >
-            <i className="far fa-trash-alt"></i>
-            Reset
-          </button>
-          <article className={`js_card_article card__article palette${user.palette}`}>
-            <div className="header-card card__article--data">
-              <h2 className="name js_card_name">
-                {user.name === '' ? 'Nombre Apellidos' : user.name}
-              </h2>
-              <h3 className="text js_card_job">
-                {user.job === '' ? 'Front-end Developer' : user.job}
-              </h3>
-            </div>
-            <div className="card__article--photo js_card_img js__profile-image"></div>
-            <nav className="card__article--links">
-              <a className="js_card_phone" href={`tel:${user.phone}`}>
-                <i className="fa-solid fa-mobile-screen-button icon"></i>
-              </a>
-
-              <a className="js_card_email" href={`mailto:${user.email}`}>
-                <i className="fa-regular fa-envelope icon"></i>
-              </a>
-
-              <a className="js_card_linkedin" href={user.linkedin} target="_blank">
-                <i className="fa-brands fa-linkedin-in icon"></i>
-              </a>
-
-              <a className="js_card_github" href={user.github} target="_blank">
-                <i className="fa-brands fa-github-alt icon"></i>
-              </a>
-            </nav>
-          </article>
-        </section>
+        <SectionCard 
+        event={handleReset}
+        valueName={user.name}
+        valueJob={user.job}
+        valuePalette={user.palette}
+        valuePhone={user.phone}
+        valueEmail={user.email}
+        valueLinkedin={user.linkedin}
+        valueGithub={user.github}
+        ></SectionCard>
 
         {/* CUESTIONARIO */}
         <form className="mainCreate__design" onSubmit={handleSubmit}>
