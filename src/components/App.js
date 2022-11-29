@@ -4,6 +4,7 @@ import scrollDown from '../images/ico-scroll-down.svg';
 import { useState } from 'react';
 import localCard from '../services/api';
 import HeaderCreate from './HeaderCreate';
+import Comparte from './Comparte';
 
 function App() {
   const [user, setUser] = useState({
@@ -312,29 +313,7 @@ function App() {
     }
   };
 
-  const renderShare = () => {
-    if (shareIsOpen === true) {
-      return (
-        <section className="buttonComparte js-share">
-          <a href="" className="linkComparte js-linkCreated" onClick={handleClickCreate}>
-            <i className="fa-regular fa-address-card"></i>Crear Tarjeta
-          </a>
-          <article className="cardCreated js-cardCreated hidden js-share">
-            <h3 className="cardCreated_text js-textError"></h3>
-            <a
-              className="cardCreated_link js-shareUrl"
-              href=""
-              target="_blank"
-            >{fetchResponse}</a>
-            <a className="cardCreated_button js-twitter hidden" target="_blank">
-              <i className="fa-brands fa-twitter" href=""></i>Compartir en
-              twitter
-            </a>
-          </article>
-        </section>
-      );
-    }
-  };
+
 
   return (
     <div>
@@ -420,22 +399,14 @@ function App() {
           </fieldset>
 
           {/* COMPARTE */}
-          <fieldset className="share">
-            <section
-              className="buttonShare js-shareClick"
-              onClick={handleToggleShare}
-            >
-              <p className="buttonShare__title">
-                <i className="fa-solid fa-share-nodes"></i> Comparte{' '}
-              </p>
-              <img
-                src={scrollDown}
-                className={`buttonShare__arrow js-arrow-share ${arrowRotateShare}`}
-                alt=""
-              />
-            </section>
-            {renderShare()}
-          </fieldset>
+          <Comparte
+            src={scrollDown}
+            event={handleToggleShare}
+            arrowState={arrowRotateShare}
+            shareState={shareIsOpen}
+            eventClick={handleClickCreate}
+            reponse={fetchResponse}
+          />
         </form>
       </main>
 

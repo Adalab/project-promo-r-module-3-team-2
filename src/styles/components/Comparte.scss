@@ -1,3 +1,5 @@
+@import "../core/variables.scss";
+
 .fa-share-nodes {
   color: rgba(7, 7, 7, 0.808);
 }
@@ -45,6 +47,7 @@
   border-top: solid 1px $border-color;
   margin-top: 10px;
   width: 100%;
+
   &_text {
     margin-top: 20px;
     font-size: 18px;
@@ -52,15 +55,17 @@
     font-weight: 700;
     color: $text;
   }
+
   &_link {
     font-size: 12px;
     text-align: center;
     font-weight: 600;
-    color:  rgba(177, 8, 8, 0.808);
+    color: rgba(177, 8, 8, 0.808);
     padding-top: 10px;
     padding-bottom: 3px;
     margin-bottom: 10px;
   }
+
   &_button {
     text-decoration: none;
     background-color: $socialmedia-button;
@@ -86,7 +91,7 @@
 }
 
 .linkComparte {
-  background-color:  rgba(177, 8, 8, 0.808);
+  background-color: rgba(177, 8, 8, 0.808);
   color: $footer-bg-color;
   text-decoration: none;
   width: 199px;
