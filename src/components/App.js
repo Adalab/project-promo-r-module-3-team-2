@@ -3,6 +3,7 @@ import image from '../images/title.png';
 import logo from '../images/logo-adalab.png';
 import scrollDown from '../images/ico-scroll-down.svg';
 import { useState } from 'react';
+import localCard from '../services/api';
 
 function App() {
   const [user, setUser] = useState({
@@ -13,6 +14,7 @@ function App() {
     email: '',
     linkedin: '',
     github: '',
+    photo: 'http://placekitten.com/g/200/300',
   });
 
   const [designIsOpen, setDesignIsOpen] = useState(true);
@@ -23,6 +25,7 @@ function App() {
   const [arrowRotateShare, setArrowRotateShare] = useState('');
   const [errorEmail, setErrorEmail] = useState(false);
   const [errorPhone, setErrorPhone] = useState(false);
+  const [fetchResponse, setFetchResponse] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -32,7 +35,7 @@ function App() {
     const inputValue = event.target.value;
     const inputName = event.target.name;
     setUser({ ...user, [inputName]: inputValue });
-    console.log(user);
+
 
     if (inputName === 'phone') {
       const regExPhone = /[6-9]{1}[0-9]{8}/; //Se añade una comprobación para que vea si el valor del teléfono cumple con la expresión regular dada
@@ -51,7 +54,8 @@ function App() {
         setErrorEmail(true);
       }
 
-  }};
+    }
+  };
 
   const errorPhoneText = (errorMsg) => {
     if (errorPhone) {
@@ -67,7 +71,7 @@ function App() {
 
   const handleReset = (event) => {
     event.preventDefault();
-    setUser ({
+    setUser({
       palette: '1',
       name: '',
       job: '',
@@ -76,6 +80,14 @@ function App() {
       linkedin: '',
       github: '',
     });
+  };
+  const handleClickCreate = (event) => {//falta comprobar que funciona
+    event.preventDefault();
+    localCard(user).then((response) => {
+      console.log(response)
+      setFetchResponse(response);
+    });
+
   };
 
   const handleToggleDesign = () => {
@@ -244,8 +256,8 @@ function App() {
             onInput={handleInput}
           />
           <small className="fill__small js-small-text">
-              {' '}
-              {errorEmailText('El email que has introducido no es correcto.')}
+            {' '}
+            {errorEmailText('El email que has introducido no es correcto.')}
           </small>
 
           <label htmlFor="phone" className="fill__infoLabel">
@@ -264,8 +276,8 @@ function App() {
             onInput={handleInput}
           />
           <small className="fill__small js-small-text">
-              {' '}
-              {errorPhoneText('El teléfono que has introducido no es correcto.')}
+            {' '}
+            {errorPhoneText('El teléfono que has introducido no es correcto.')}
           </small>
 
           <label htmlFor="linkedin" className="fill__infoLabel">
@@ -304,7 +316,7 @@ function App() {
     if (shareIsOpen === true) {
       return (
         <section className="buttonComparte js-share">
-          <a href="" className="linkComparte js-linkCreated">
+          <a href="" className="linkComparte js-linkCreated" onClick={handleClickCreate}>
             <i className="fa-regular fa-address-card"></i>Crear Tarjeta
           </a>
           <article className="cardCreated js-cardCreated hidden js-share">
@@ -313,7 +325,7 @@ function App() {
               className="cardCreated_link js-shareUrl"
               href=""
               target="_blank"
-            ></a>
+            >{fetchResponse}</a>
             <a className="cardCreated_button js-twitter hidden" target="_blank">
               <i className="fa-brands fa-twitter" href=""></i>Compartir en
               twitter
