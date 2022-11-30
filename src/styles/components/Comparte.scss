@@ -1,4 +1,7 @@
 @import "../core/variables.scss";
+@import "../core/functions.scss";
+@import "../components/arrow.scss";
+@import "../components/hidden.scss";
 
 .fa-share-nodes {
   color: rgba(7, 7, 7, 0.808);
@@ -18,20 +21,22 @@
   padding-bottom: 15px;
   padding-left: 10px;
   cursor: pointer;
+
+  &__arrow {
+    transform: scaleY(-1);
+    padding-right: 10px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: rem(18);
+    font-family: $font-Open;
+    font-weight: 700;
+    color: $text;
+  }
 }
 
-.buttonShare__arrow {
-  transform: scaleY(-1);
-  padding-right: 10px;
-}
 
-.buttonShare__title {
-  text-transform: uppercase;
-  font-size: rem(18);
-  font-family: $font-Open;
-  font-weight: 700;
-  color: $text;
-}
 
 .fa-address-card {
   color: $footer-bg-color;

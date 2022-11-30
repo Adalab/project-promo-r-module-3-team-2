@@ -1,13 +1,16 @@
 @import "../core/variables";
+@import "../components/arrow.scss";
 
 .buttonFill {
   display: flex;
   justify-content: space-between;
   margin: 0 10px 15px 10px;
   cursor: pointer;
+
   &__arrow {
     transform: scaleY(-1);
   }
+
   &__title {
     text-transform: uppercase;
     font-size: rem(18);
@@ -15,14 +18,17 @@
     font-weight: 700;
     color: $text;
   }
+
   @media all and (min-width: 768px) {
     margin: 10px 10px 15px 10px;
   }
 }
+
 .fa-regular {
   color: rgba(177, 8, 8, 0.808);
   margin-right: 5px;
 }
+
 .fill {
   display: flex;
   flex-direction: column;
@@ -30,16 +36,19 @@
   justify-content: center;
   align-items: left;
   margin: 0px 20px 10px 20px;
+
   &__small {
     font-size: 10px;
     margin-bottom: 15px;
   }
+
   &__infoLabel {
     color: $title-card-icons;
     font-size: rem(14);
     margin-bottom: 7px;
     font-weight: 700;
   }
+
   &__infoInput {
     margin-bottom: 20px;
     border-color: $border-icon;
@@ -47,22 +56,26 @@
     border-width: 1px;
     height: 30px;
   }
+
   &__action {
     margin-top: 15px;
     margin-bottom: 35px;
     display: flex;
     gap: 30px;
+
     &--labelInput {
-      background-color:  rgba(177, 8, 8, 0.808);
+      background-color: rgba(177, 8, 8, 0.808);
       padding: 7px 20px;
       border-radius: 3px;
       color: $main-bg-color;
       box-shadow: 0 0 4px 0 rgba(0, 0, 0, 1);
       cursor: pointer;
     }
+
     &--imageInput {
       display: none;
     }
+
     &--preview {
       width: 30px;
       height: 30px;
