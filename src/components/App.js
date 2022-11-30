@@ -84,14 +84,14 @@ function App() {
   };
 
   const handleToggleShare = () => {
-    if (shareIsOpen === false) {
-      setShareIsOpen(!shareIsOpen);
-      setFillIsOpen(false);
-      setDesignIsOpen(false);
-      setArrowRotateShare('arrowRotate');
-      setArrowRotateFill('');
-      setArrowRotateDesign('');
-    }
+    // if (shareIsOpen === false) {
+    setShareIsOpen(!shareIsOpen);
+    setFillIsOpen(false);
+    setDesignIsOpen(false);
+    setArrowRotateShare('arrowRotate');
+    setArrowRotateFill('');
+    setArrowRotateDesign('');
+    // }
   };
 
   return (
