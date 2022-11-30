@@ -401,11 +401,11 @@ function App() {
           {/* COMPARTE */}
           <Comparte
             src={scrollDown}
-            event={handleToggleShare}
-            arrowState={arrowRotateShare}
-            shareState={shareIsOpen}
-            eventClick={handleClickCreate}
-            reponse={fetchResponse}
+            handleToggleShare={handleToggleShare}
+            arrowRotateShare={arrowRotateShare}
+            shareIsOpen={shareIsOpen}
+            handleClickCreate={handleClickCreate}
+            fetchResponse={fetchResponse}
           />
         </form>
       </main>

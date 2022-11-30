@@ -1,10 +1,10 @@
 import '../styles/components/Comparte.scss';
 const Comparte = (props) => {
     const renderShare = () => {
-        if (props.shareState === true) {
+        if (props.shareIsOpen === true) {
             return (
                 <section className="buttonComparte js-share">
-                    <a href="" className="linkComparte js-linkCreated" onClick={props.eventClick}>
+                    <a href="" className="linkComparte js-linkCreated" onClick={props.handleClickCreate}>
                         <i className="fa-regular fa-address-card"></i>Crear Tarjeta
                     </a>
                     <article className="cardCreated js-cardCreated hidden js-share">
@@ -13,7 +13,7 @@ const Comparte = (props) => {
                             className="cardCreated_link js-shareUrl"
                             href=""
                             target="_blank"
-                        >{props.response}</a>
+                        >{props.fetchResponse}</a>
                         <a className="cardCreated_button js-twitter hidden" target="_blank">
                             <i className="fa-brands fa-twitter" href=""></i>Compartir en
                             twitter
@@ -27,14 +27,14 @@ const Comparte = (props) => {
         <fieldset className="share">
             <section
                 className="buttonShare js-shareClick"
-                onClick={props.event}
+                onClick={props.handleToggleShare}
             >
                 <p className="buttonShare__title">
                     <i className="fa-solid fa-share-nodes"></i> Comparte{' '}
                 </p>
                 <img
                     src={props.src}
-                    className={`buttonShare__arrow js-arrow-share ${props.arrowState}`}
+                    className={`buttonShare__arrow js-arrow-share ${props.arrowRotateShare}`}
                     alt=""
                 />
             </section>
