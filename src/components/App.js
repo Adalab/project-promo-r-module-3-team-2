@@ -1,5 +1,4 @@
 import '../styles/App.scss';
-import logo from '../images/logo-adalab.png';
 import scrollDown from '../images/ico-scroll-down.svg';
 import { useState } from 'react';
 import localCard from '../services/api';
