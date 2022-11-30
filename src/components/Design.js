@@ -1,6 +1,9 @@
 import '../styles/components/Diseña.scss';
 
 const Design = (prop) => {
+  const handleChange = (event) => {
+    prop.handleInput(event.target.name, event.target.value);
+  };
   const renderDesign = () => {
     if (prop.designIsOpen === true) {
       return (
@@ -17,7 +20,7 @@ const Design = (prop) => {
                 value="1"
                 name="palette"
                 checked={prop.userpalette === '1'}
-                onChange={prop.handleInput}
+                onChange={handleChange}
               />
               <section className="colorsBoxOne">
                 <div className="rectangle__a1"></div>
@@ -35,7 +38,7 @@ const Design = (prop) => {
               value="2"
               name="palette"
               checked={prop.userpalette === '2'}
-              onChange={prop.handleInput}
+              onChange={handleChange}
             />
             <section className="colorsBoxTwo">
               <div className="rectangle__b1"></div>
@@ -52,7 +55,7 @@ const Design = (prop) => {
               value="3"
               name="palette"
               checked={prop.userpalette === '3'}
-              onChange={prop.handleInput}
+              onChange={handleChange}
             />
             <section className="colorsBoxThree">
               <div className="rectangle__c1"></div>
