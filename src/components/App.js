@@ -7,6 +7,7 @@ import FieldsetRellena from './FieldsetRellena';
 import SectionCard from './SectionCard';
 import Footer from './Footer';
 
+import Comparte from './Comparte';
 
 function App() {
   const [user, setUser] = useState({
@@ -32,7 +33,7 @@ function App() {
     event.preventDefault();
   };
 
-  const handleInput = (inputValue,inputName) => {
+  const handleInput = (inputValue, inputName) => {
     // const inputValue = event.target.value;
     // const inputName = event.target.name;
     setUser({ ...user, [inputName]: inputValue });
@@ -158,29 +159,7 @@ function App() {
 
   // RenderFill
 
-  const renderShare = () => {
-    if (shareIsOpen === true) {
-      return (
-        <section className="buttonComparte js-share">
-          <a href="" className="linkComparte js-linkCreated" onClick={handleClickCreate}>
-            <i className="fa-regular fa-address-card"></i>Crear Tarjeta
-          </a>
-          <article className="cardCreated js-cardCreated hidden js-share">
-            <h3 className="cardCreated_text js-textError"></h3>
-            <a
-              className="cardCreated_link js-shareUrl"
-              href=""
-              target="_blank"
-            >{fetchResponse}</a>
-            <a className="cardCreated_button js-twitter hidden" target="_blank">
-              <i className="fa-brands fa-twitter" href=""></i>Compartir en
-              twitter
-            </a>
-          </article>
-        </section>
-      );
-    }
-  };
+
 
   return (
     <div>
@@ -188,15 +167,15 @@ function App() {
       <HeaderCreate></HeaderCreate>
       <main className="mainCreate">
         {/* TARJETA */}
-        <SectionCard 
-        event={handleReset}
-        valueName={user.name}
-        valueJob={user.job}
-        valuePalette={user.palette}
-        valuePhone={user.phone}
-        valueEmail={user.email}
-        valueLinkedin={user.linkedin}
-        valueGithub={user.github}
+        <SectionCard
+          event={handleReset}
+          valueName={user.name}
+          valueJob={user.job}
+          valuePalette={user.palette}
+          valuePhone={user.phone}
+          valueEmail={user.email}
+          valueLinkedin={user.linkedin}
+          valueGithub={user.github}
         ></SectionCard>
 
         {/* CUESTIONARIO */}
@@ -220,42 +199,34 @@ function App() {
           </fieldset>
 
           {/* RELLENA */}
-         
-         <FieldsetRellena
-         
-         fillState = {fillIsOpen}
-         valueName = {user.name}
-         valueJob = {user.job}
-         valueEmail = {user.email}
-         valuePhone = {user.phone}
-         valueLinkedin = {user.linkedin}
-         valueGithub = {user.github}
-         handleInput = {handleInput} 
-         eventClick = {handleToggleFill}
-         src={scrollDown}
-         arrowState={arrowRotateFill}
-         reponse={fetchResponse}
-         
 
-         />
+          <FieldsetRellena
+
+            fillState={fillIsOpen}
+            valueName={user.name}
+            valueJob={user.job}
+            valueEmail={user.email}
+            valuePhone={user.phone}
+            valueLinkedin={user.linkedin}
+            valueGithub={user.github}
+            handleInput={handleInput}
+            eventClick={handleToggleFill}
+            src={scrollDown}
+            arrowState={arrowRotateFill}
+            reponse={fetchResponse}
+
+
+          />
 
           {/* COMPARTE */}
-          <fieldset className="share">
-            <section
-              className="buttonShare js-shareClick"
-              onClick={handleToggleShare}
-            >
-              <p className="buttonShare__title">
-                <i className="fa-solid fa-share-nodes"></i> Comparte{' '}
-              </p>
-              <img
-                src={scrollDown}
-                className={`buttonShare__arrow js-arrow-share ${arrowRotateShare}`}
-                alt=""
-              />
-            </section>
-            {renderShare()}
-          </fieldset>
+          <Comparte
+            src={scrollDown}
+            handleToggleShare={handleToggleShare}
+            arrowRotateShare={arrowRotateShare}
+            shareIsOpen={shareIsOpen}
+            handleClickCreate={handleClickCreate}
+            fetchResponse={fetchResponse}
+          />
         </form>
       </main>
 
