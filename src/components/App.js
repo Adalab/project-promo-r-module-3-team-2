@@ -89,16 +89,16 @@ function App() {
     });
   };
 
-  // const handleToggleDesign = () => {
-  //   if (designIsOpen === false) {
-  //     setDesignIsOpen(!designIsOpen);
-  //     setFillIsOpen(false);
-  //     setShareIsOpen(false);
-  //     setArrowRotateDesign('arrowRotate');
-  //     setArrowRotateFill('');
-  //     setArrowRotateShare('');
-  //   }
-  // };
+  const handleToggleDesign = () => {
+    if (designIsOpen === false) {
+      setDesignIsOpen(!designIsOpen);
+      setFillIsOpen(false);
+      setShareIsOpen(false);
+      setArrowRotateDesign('arrowRotate');
+      setArrowRotateFill('');
+      setArrowRotateShare('');
+    }
+  };
 
   const handleToggleFill = () => {
     if (fillIsOpen === false) {
@@ -395,12 +395,7 @@ function App() {
         <form className="mainCreate__design" onSubmit={handleSubmit}>
           {/* DISEÑA */}
           <Design
-            setDesignIsOpen={setDesignIsOpen}
-            setFillIsOpen={setFillIsOpen}
-            setShareIsOpen={setShareIsOpen}
-            setArrowRotateDesign={setArrowRotateDesign}
-            setArrowRotateFill={setArrowRotateFill}
-            setArrowRotateShare={setArrowRotateShare}
+            handleToggleDesign={handleToggleDesign}
             designIsOpen={designIsOpen}
             userpalette={user.palette}
             scrollDown={scrollDown}

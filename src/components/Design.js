@@ -1,16 +1,6 @@
 import '../styles/components/Diseña.scss';
 
 const Design = (prop) => {
-  const handleToggleDesign = () => {
-    if (prop.designIsOpen === false) {
-      prop.setDesignIsOpen(!prop.designIsOpen);
-      prop.setFillIsOpen(false);
-      prop.setShareIsOpen(false);
-      prop.setArrowRotateDesign('arrowRotate');
-      prop.setArrowRotateFill('');
-      prop.setArrowRotateShare('');
-    }
-  };
   const renderDesign = () => {
     if (prop.designIsOpen === true) {
       return (
@@ -77,7 +67,10 @@ const Design = (prop) => {
 
   return (
     <fieldset className="design">
-      <div className="buttonDesign js-designClick" onClick={handleToggleDesign}>
+      <div
+        className="buttonDesign js-designClick"
+        onClick={prop.handleToggleDesign}
+      >
         <legend className="buttonDesign__title">
           <i className="fa-solid fa-object-ungroup"></i> Diseña{' '}
         </legend>
