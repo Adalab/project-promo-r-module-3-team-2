@@ -1,3 +1,15 @@
+@import "../core/variables";
+@import "../core/functions";
+@import "../core/_mixin.scss";
+
+.bck-landing {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-image: url('../../images/background-main-copy.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .principal {
   display: flex;
   flex-direction: column;
@@ -66,7 +78,7 @@
 .Element4,
 .Element5,
 .Element6 {
-  color: $button-link;
+  color: rgba(177, 8, 8, 0.808);
   font-size: rem(22.4);
   margin-top: rem(15);
 }
