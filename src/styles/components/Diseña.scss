@@ -1,11 +1,9 @@
 @import '../core/variables';
+@import "../components/arrow.scss";
+
 .design {
   border-bottom: solid 1px rgb(2, 65, 2);
   margin: 27px 20px 10px 20px;
-}
-
-.fa fa-object-ungroup {
-  color: black;
 }
 
 .fa-solid {
@@ -26,7 +24,7 @@
 
 .buttonDesign__arrow {
   padding-right: 10px;
-  transform: scaleY(-1);
+
 }
 
 .buttonDesign__title {
