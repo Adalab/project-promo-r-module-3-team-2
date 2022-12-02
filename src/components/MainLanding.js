@@ -1,4 +1,5 @@
 import '../styles/components/MainLanding.scss';
+import { Link } from 'react-router-dom';
 
 const MainLanding = () => {
   return (
@@ -28,9 +29,9 @@ const MainLanding = () => {
       </section>
 
       <section className="btn">
-        <a href="./create.html" title="Ir a diseñar" className="btn__link">
+        <Link to="/create" title="Ir a diseñar" className="btn__link">
           comenzar
-        </a>
+        </Link>
       </section>
     </main>
   );

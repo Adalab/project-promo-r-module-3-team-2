@@ -2,6 +2,7 @@ import '../styles/App.scss';
 import Footer from './Footer';
 import Landing from './Landing';
 import Card from './Card';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   // const [user, setUser] = useState({
@@ -89,7 +90,10 @@ function App() {
 
   return (
     <div>
-      <Card></Card>
+      <Routes>
+        <Route path='/' element={<Landing></Landing>}></Route>
+        <Route path='/create' element={<Card></Card>}></Route>
+      </Routes>
       {/* <Landing></Landing> */}
       {/* FOOTER */}
       <Footer></Footer>
