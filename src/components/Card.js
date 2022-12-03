@@ -11,6 +11,7 @@ import Comparte from "./Comparte";
 import Design from "./Design";
 
 const Card = () => {
+  
   const [user, setUser] = useState(
     ls.get("obj", {
       palette: "1",
@@ -40,7 +41,7 @@ const Card = () => {
     // const inputValue = event.target.value;
     // const inputName = event.target.name;
     setUser({ ...user, [inputName]: inputValue });
-    ls.set("obj", user);
+    ls.set("obj", { ...user, [inputName]: inputValue });
   };
 
   const handleReset = (event) => {
