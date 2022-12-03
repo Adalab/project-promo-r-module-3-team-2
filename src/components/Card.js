@@ -26,6 +26,7 @@ const Card = () => {
   const [arrowRotateFill, setArrowRotateFill] = useState('');
   const [arrowRotateShare, setArrowRotateShare] = useState('');
   const [fetchResponse, setFetchResponse] = useState('');
+  const [hiddenShare, setHiddenShare] = useState(true);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -49,12 +50,13 @@ const Card = () => {
       github: '',
     });
   };
-  const handleClickCreate = (event) => {
+  const handleClickCreate = () => {
     //falta comprobar que funciona
-    event.preventDefault();
+    setHiddenShare(false);
     localCard(user).then((response) => {
       console.log(response);
       setFetchResponse(response);
+
     });
   };
 
@@ -144,6 +146,7 @@ const Card = () => {
             shareIsOpen={shareIsOpen}
             handleClickCreate={handleClickCreate}
             fetchResponse={fetchResponse}
+            hiddenShare={hiddenShare}
           />
         </form>
       </main>

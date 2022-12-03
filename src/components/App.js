@@ -89,7 +89,7 @@ function App() {
   // };
 
   return (
-    <div>
+    <>
       <Routes>
         <Route path='/' element={<Landing></Landing>}></Route>
         <Route path='/create' element={<Card></Card>}></Route>
@@ -97,7 +97,7 @@ function App() {
       {/* <Landing></Landing> */}
       {/* FOOTER */}
       <Footer></Footer>
-    </div>
+    </>
   );
 }
 
