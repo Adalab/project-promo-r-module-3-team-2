@@ -1,31 +1,36 @@
-import { useState } from 'react';
-import localCard from '../services/api';
-import scrollDown from '../images/ico-scroll-down.svg';
-import HeaderCreate from './HeaderCreate';
-import FieldsetRellena from './FieldsetRellena';
-import SectionCard from './SectionCard';
-import Comparte from './Comparte';
-import Design from './Design';
+//services
+import { useState } from "react";
+import localCard from "../services/api";
+import ls from "../services/localstorage";
+//components
+import scrollDown from "../images/ico-scroll-down.svg";
+import HeaderCreate from "./HeaderCreate";
+import FieldsetRellena from "./FieldsetRellena";
+import SectionCard from "./SectionCard";
+import Comparte from "./Comparte";
+import Design from "./Design";
 
 const Card = () => {
-  const [user, setUser] = useState({
-    palette: '1',
-    name: '',
-    job: '',
-    phone: '',
-    email: '',
-    linkedin: '',
-    github: '',
-    photo: 'http://placekitten.com/g/200/300',
-  });
+  const [user, setUser] = useState(
+    ls.get("obj", {
+      palette: "1",
+      name: "",
+      job: "",
+      phone: "",
+      email: "",
+      linkedin: "",
+      github: "",
+      photo: "http://placekitten.com/g/200/300",
+    })
+  );
 
   const [designIsOpen, setDesignIsOpen] = useState(true);
   const [fillIsOpen, setFillIsOpen] = useState(false);
   const [shareIsOpen, setShareIsOpen] = useState(false);
-  const [arrowRotateDesign, setArrowRotateDesign] = useState('arrowRotate');
-  const [arrowRotateFill, setArrowRotateFill] = useState('');
-  const [arrowRotateShare, setArrowRotateShare] = useState('');
-  const [fetchResponse, setFetchResponse] = useState('');
+  const [arrowRotateDesign, setArrowRotateDesign] = useState("arrowRotate");
+  const [arrowRotateFill, setArrowRotateFill] = useState("");
+  const [arrowRotateShare, setArrowRotateShare] = useState("");
+  const [fetchResponse, setFetchResponse] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,25 +40,26 @@ const Card = () => {
     // const inputValue = event.target.value;
     // const inputName = event.target.name;
     setUser({ ...user, [inputName]: inputValue });
+    ls.set("obj", user);
   };
 
   const handleReset = (event) => {
     event.preventDefault();
     setUser({
-      palette: '1',
-      name: '',
-      job: '',
-      phone: '',
-      email: '',
-      linkedin: '',
-      github: '',
+      palette: "1",
+      name: "",
+      job: "",
+      phone: "",
+      email: "",
+      linkedin: "",
+      github: "",
     });
+    ls.clear();
   };
   const handleClickCreate = (event) => {
     //falta comprobar que funciona
     event.preventDefault();
     localCard(user).then((response) => {
-      console.log(response);
       setFetchResponse(response);
     });
   };
@@ -63,9 +69,9 @@ const Card = () => {
       setDesignIsOpen(!designIsOpen);
       setFillIsOpen(false);
       setShareIsOpen(false);
-      setArrowRotateDesign('arrowRotate');
-      setArrowRotateFill('');
-      setArrowRotateShare('');
+      setArrowRotateDesign("arrowRotate");
+      setArrowRotateFill("");
+      setArrowRotateShare("");
     }
   };
 
@@ -74,9 +80,9 @@ const Card = () => {
       setFillIsOpen(!fillIsOpen);
       setShareIsOpen(false);
       setDesignIsOpen(false);
-      setArrowRotateFill('arrowRotate');
-      setArrowRotateDesign('');
-      setArrowRotateShare('');
+      setArrowRotateFill("arrowRotate");
+      setArrowRotateDesign("");
+      setArrowRotateShare("");
     }
   };
 
@@ -85,9 +91,9 @@ const Card = () => {
     setShareIsOpen(!shareIsOpen);
     setFillIsOpen(false);
     setDesignIsOpen(false);
-    setArrowRotateShare('arrowRotate');
-    setArrowRotateFill('');
-    setArrowRotateDesign('');
+    setArrowRotateShare("arrowRotate");
+    setArrowRotateFill("");
+    setArrowRotateDesign("");
     // }
   };
   return (

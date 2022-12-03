@@ -1,7 +1,10 @@
+//Styles
 import '../styles/App.scss';
+//components
 import Footer from './Footer';
 import Landing from './Landing';
 import Card from './Card';
+//services
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
