@@ -13,7 +13,7 @@ function localCard(userData) {
                 return responseJson.cardURL;
 
             } else {
-                return ('Faltan datos por rellenar, no seas vago.');
+                return ('')
             }
         });
 }

@@ -28,10 +28,12 @@ const Card = () => {
   const [designIsOpen, setDesignIsOpen] = useState(true);
   const [fillIsOpen, setFillIsOpen] = useState(false);
   const [shareIsOpen, setShareIsOpen] = useState(false);
-  const [arrowRotateDesign, setArrowRotateDesign] = useState("arrowRotate");
-  const [arrowRotateFill, setArrowRotateFill] = useState("");
-  const [arrowRotateShare, setArrowRotateShare] = useState("");
-  const [fetchResponse, setFetchResponse] = useState("");
+  const [arrowRotateDesign, setArrowRotateDesign] = useState('arrowRotate');
+  const [arrowRotateFill, setArrowRotateFill] = useState('');
+  const [arrowRotateShare, setArrowRotateShare] = useState('');
+  const [fetchResponse, setFetchResponse] = useState('');
+  const [hiddenShare, setHiddenShare] = useState(true);
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -57,11 +59,12 @@ const Card = () => {
     });
     ls.clear();
   };
-  const handleClickCreate = (event) => {
+  const handleClickCreate = () => {
     //falta comprobar que funciona
-    event.preventDefault();
+    setHiddenShare(false);
     localCard(user).then((response) => {
       setFetchResponse(response);
+
     });
   };
 
@@ -151,6 +154,7 @@ const Card = () => {
             shareIsOpen={shareIsOpen}
             handleClickCreate={handleClickCreate}
             fetchResponse={fetchResponse}
+            hiddenShare={hiddenShare}
           />
         </form>
       </main>

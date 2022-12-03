@@ -1,7 +1,7 @@
 @import "../core/variables.scss";
 @import "../core/functions.scss";
 @import "../components/arrow.scss";
-@import "../components/hidden.scss";
+
 
 .fa-share-nodes {
   color: rgba(7, 7, 7, 0.808);
@@ -18,14 +18,9 @@
 .buttonShare {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 15px;
-  padding-left: 10px;
+  margin: 0 10px 15px 10px;
   cursor: pointer;
 
-  &__arrow {
-
-    padding-right: 10px;
-  }
 
   &__title {
     text-transform: uppercase;
@@ -47,14 +42,17 @@
 }
 
 .cardCreated {
-  display: flex;
-  flex-direction: column;
   border-top: solid 1px $border-color;
   margin-top: 10px;
   width: 100%;
 
+  &__div {
+    display: flex;
+    flex-direction: column;
+  }
+
   &_text {
-    margin-top: 20px;
+    margin: 4% 0 4% 0;
     font-size: 18px;
     text-align: center;
     font-weight: 700;
@@ -98,7 +96,7 @@
 .linkComparte {
   background-color: rgba(177, 8, 8, 0.808);
   color: $footer-bg-color;
-  text-decoration: none;
+  border: none;
   width: 199px;
   height: 50px;
   margin: 33px 49px 30px 44px;
@@ -110,6 +108,7 @@
   font-size: rem(18);
   text-transform: uppercase;
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.32);
+
 }
 
 .linkgrey {
@@ -132,4 +131,8 @@
 .share {
   border-bottom: solid 1px rgb(2, 54, 2);
   margin: 15px 20px 30px 20px;
+}
+
+.hidden {
+  display: none;
 }
