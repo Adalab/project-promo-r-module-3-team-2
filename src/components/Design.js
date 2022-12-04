@@ -13,7 +13,7 @@ const Design = (prop) => {
         <Palettes 
         designIsOpen = {prop.designIsOpen}
         userpalette = {prop.userpalette}
-        handleChange = {prop.handleChange}
+        handleChange = {handleChange}
         renderDesign = {prop.renderDesign}
         scrollDown = {prop.scrollDown}
         handleToggleDesign = {prop.handleToggleDesign}
