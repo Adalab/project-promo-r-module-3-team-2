@@ -77,6 +77,7 @@ const FieldsetRellena = (props) => {
           <label htmlFor="imageForm" className="fill__infoLabel">
             Imagen de perfil
           </label>
+
           <GetAvatar avatar={props.avatar} updateAvatar={props.updateAvatar} />
           <label htmlFor="email" className="fill__infoLabel">
             Email
