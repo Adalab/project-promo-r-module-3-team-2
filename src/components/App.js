@@ -91,8 +91,8 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Landing></Landing>}></Route>
-        <Route path='/create' element={<Card></Card>}></Route>
+        <Route path="/" element={<Landing></Landing>}></Route>
+        <Route path="/create" element={<Card></Card>}></Route>
       </Routes>
       {/* <Landing></Landing> */}
       {/* FOOTER */}

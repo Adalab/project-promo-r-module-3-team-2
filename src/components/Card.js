@@ -8,6 +8,12 @@ import Comparte from './Comparte';
 import Design from './Design';
 
 const Card = () => {
+  //Avatar
+  const [avatar, setAvatar] = useState('');
+  const updateAvatar = (avatar) => {
+    setAvatar(avatar);
+  };
+  //fin Avatar
   const [user, setUser] = useState({
     palette: '1',
     name: '',
@@ -105,6 +111,8 @@ const Card = () => {
           valueEmail={user.email}
           valueLinkedin={user.linkedin}
           valueGithub={user.github}
+          avatar={avatar}
+          updateAvatar={updateAvatar}
         ></SectionCard>
 
         {/* CUESTIONARIO */}
@@ -134,6 +142,8 @@ const Card = () => {
             src={scrollDown}
             arrowState={arrowRotateFill}
             reponse={fetchResponse}
+            avatar={avatar}
+            updateAvatar={updateAvatar}
           />
 
           {/* COMPARTE */}
