@@ -78,7 +78,11 @@ const FieldsetRellena = (props) => {
             Imagen de perfil
           </label>
 
-          <GetAvatar avatar={props.avatar} updateAvatar={props.updateAvatar} />
+          <GetAvatar
+            // handleInput={props.handleInput}
+            avatar={props.avatar}
+            updateAvatar={props.updateAvatar}
+          />
           <label htmlFor="email" className="fill__infoLabel">
             Email
           </label>

@@ -7,12 +7,10 @@ const GetAvatar = (props) => {
   const fr = new FileReader();
   const myFileField = React.createRef();
   const uploadImage = (ev) => {
-    console.log('La usuarioa ha abierto la ventana para elegir fichero');
-    console.log('La usuaria ha elegido los ficheros', ev.currentTarget.files);
-    console.log(
-      'El primero de los ficheros elegidos es',
-      ev.currentTarget.files[0]
-    );
+    // const inputValue = ev.target.value;
+    // const inputName = ev.target.name;
+    // console.log(inputName, inputValue);
+    // props.handleInput(inputValue, inputName);
     if (ev.currentTarget.files.length > 0) {
       const myFile = ev.currentTarget.files[0];
       fr.addEventListener('load', getImage);
@@ -41,7 +39,7 @@ const GetAvatar = (props) => {
         accept="image/*"
         className="fill__infoInput fill__action--imageInput js_input_img js__profile-upload-btn js_inputReset"
         id="imageForm"
-        name="img"
+        name="photo"
         onChange={uploadImage}
       />
       <div

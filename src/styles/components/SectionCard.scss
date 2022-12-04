@@ -2,31 +2,7 @@
 @import "../core/mixin.scss";
 @import "../core/functions.scss";
 
-.mainCreate {
-  background-image: linear-gradient(to bottom,
-      #fafafa,
-      #cacaca 7%,
-      #fafafa 97%,
-    );
 
-
-
-  @media all and (min-width: 768px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 80vh;
-
-    &__card {
-      order: 1;
-      margin: 20px 40px 21px 0;
-      border-radius: 6px;
-    }
-  }
-
-  @media all and (min-width: 1200px) {
-    grid-template-columns: 1fr 2fr;
-  }
-}
 .card {
     background: linear-gradient(-45deg, #032c18, #0b4d22, #720404, #460903);
     background-size: 400% 400%;

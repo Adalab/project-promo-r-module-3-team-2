@@ -1,5 +1,8 @@
+//services
 import { useState } from 'react';
 import localCard from '../services/api';
+import ls from '../services/localstorage';
+//components
 import scrollDown from '../images/ico-scroll-down.svg';
 import HeaderCreate from './HeaderCreate';
 import FieldsetRellena from './FieldsetRellena';
@@ -14,16 +17,18 @@ const Card = () => {
     setAvatar(avatar);
   };
   //fin Avatar
-  const [user, setUser] = useState({
-    palette: '1',
-    name: '',
-    job: '',
-    phone: '',
-    email: '',
-    linkedin: '',
-    github: '',
-    photo: 'http://placekitten.com/g/200/300',
-  });
+  const [user, setUser] = useState(
+    ls.get('obj', {
+      palette: '1',
+      name: '',
+      job: '',
+      phone: '',
+      email: '',
+      linkedin: '',
+      github: '',
+      photo: { avatar },
+    })
+  );
 
   const [designIsOpen, setDesignIsOpen] = useState(true);
   const [fillIsOpen, setFillIsOpen] = useState(false);
@@ -32,15 +37,15 @@ const Card = () => {
   const [arrowRotateFill, setArrowRotateFill] = useState('');
   const [arrowRotateShare, setArrowRotateShare] = useState('');
   const [fetchResponse, setFetchResponse] = useState('');
+  const [hiddenShare, setHiddenShare] = useState(true);
 
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
   const handleInput = (inputValue, inputName) => {
-    // const inputValue = event.target.value;
-    // const inputName = event.target.name;
     setUser({ ...user, [inputName]: inputValue });
+    ls.set('obj', { ...user, [inputName]: inputValue });
   };
 
   const handleReset = (event) => {
@@ -53,13 +58,13 @@ const Card = () => {
       email: '',
       linkedin: '',
       github: '',
+      photo: '',
     });
+    ls.clear();
   };
-  const handleClickCreate = (event) => {
-    //falta comprobar que funciona
-    event.preventDefault();
+  const handleClickCreate = () => {
+    setHiddenShare(false);
     localCard(user).then((response) => {
-      console.log(response);
       setFetchResponse(response);
     });
   };
@@ -154,6 +159,7 @@ const Card = () => {
             shareIsOpen={shareIsOpen}
             handleClickCreate={handleClickCreate}
             fetchResponse={fetchResponse}
+            hiddenShare={hiddenShare}
           />
         </form>
       </main>
