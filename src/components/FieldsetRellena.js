@@ -78,28 +78,6 @@ const FieldsetRellena = (props) => {
             Imagen de perfil
           </label>
           <GetAvatar avatar={props.avatar} updateAvatar={props.updateAvatar} />
-          {/* <div className="fill__action ">
-            <label
-              htmlFor="imageForm"
-              className="fill__infoLabel fill__action--labelInput"
-            >
-              Añadir imagen
-            </label>
-            <input
-              ref={myFileField}
-              type="file"
-              accept="image/*"
-              className="fill__infoInput fill__action--imageInput js_input_img js__profile-upload-btn js_inputReset"
-              id="imageForm"
-              name="img"
-              onChange={uploadImage}
-            />
-            <div
-              className="get-avatar__preview fill__action--preview js__profile-preview"
-              style={{ backgroundImage: `url(${avatar})` }}
-            ></div>
-          </div> */}
-
           <label htmlFor="email" className="fill__infoLabel">
             Email
           </label>

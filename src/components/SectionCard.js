@@ -26,7 +26,6 @@ const SectionCard = (props) => {
           </h3>
         </div>
         <Profile avatar={props.avatar} />
-        {/* <div className="card__article--photo js_card_img js__profile-image"></div> */}
         <nav className="card__article--links">
           <a className="js_card_phone" href={`tel:${props.valuePhone}`}>
             <i className="fa-solid fa-mobile-screen-button icon"></i>
