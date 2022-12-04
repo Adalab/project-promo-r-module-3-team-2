@@ -3,6 +3,7 @@ import Footer from './Footer';
 import Landing from './Landing';
 import Card from './Card';
 
+
 function App() {
   // const [user, setUser] = useState({
   //   palette: '1',
