@@ -11,7 +11,7 @@ import Comparte from "./Comparte";
 import Design from "./Design";
 
 const Card = () => {
-  
+
   const [user, setUser] = useState(
     ls.get("obj", {
       palette: "1",
@@ -21,7 +21,7 @@ const Card = () => {
       email: "",
       linkedin: "",
       github: "",
-      photo: "http://placekitten.com/g/200/300",
+      photo: "",
     })
   );
 
@@ -40,8 +40,6 @@ const Card = () => {
   };
 
   const handleInput = (inputValue, inputName) => {
-    // const inputValue = event.target.value;
-    // const inputName = event.target.name;
     setUser({ ...user, [inputName]: inputValue });
     ls.set("obj", { ...user, [inputName]: inputValue });
   };
@@ -60,7 +58,6 @@ const Card = () => {
     ls.clear();
   };
   const handleClickCreate = () => {
-    //falta comprobar que funciona
     setHiddenShare(false);
     localCard(user).then((response) => {
       setFetchResponse(response);
