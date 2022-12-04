@@ -1,18 +1,13 @@
 import '../styles/components/SectionCard.scss';
+import Reset from './Reset';
 
 const SectionCard = (props) => {
     return (
         <section className="mainCreate__card card">
-            <button
-                className="card__button js_reset-btn"
-                title="Reset"
-                name="Reset"
-                type="button"
-                onClick= {props.event}
-            >
-                <i className="far fa-trash-alt"></i>
-                Reset
-            </button>
+            {/*RESET*/}
+
+            <Reset event = {props.event}></Reset>
+
             <article className={`js_card_article card__article palette${props.valuePalette}`}>
                 <div className="header-card card__article--data">
                     <h2 className="name js_card_name">
