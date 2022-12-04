@@ -38,6 +38,7 @@ const SectionCard = (props) => {
             className="js_card_linkedin"
             href={props.valueLinkedin}
             target="_blank"
+            rel="noreferrer"
           >
             <i className="fa-brands fa-linkedin-in icon"></i>
           </a>
@@ -45,6 +46,7 @@ const SectionCard = (props) => {
             className="js_card_github"
             href={props.valueGithub}
             target="_blank"
+            rel="noreferrer"
           >
             <i className="fa-brands fa-github-alt icon"></i>
           </a>
