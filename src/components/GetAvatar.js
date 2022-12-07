@@ -7,10 +7,7 @@ const GetAvatar = (props) => {
   const fr = new FileReader();
   const myFileField = React.createRef();
   const uploadImage = (ev) => {
-    // const inputValue = ev.target.value;
-    // const inputName = ev.target.name;
-    // console.log(inputName, inputValue);
-    // props.handleInput(inputValue, inputName);
+
     if (ev.currentTarget.files.length > 0) {
       const myFile = ev.currentTarget.files[0];
       fr.addEventListener('load', getImage);

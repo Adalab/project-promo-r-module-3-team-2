@@ -12,9 +12,12 @@ import Design from './Design';
 
 const Card = () => {
   //Avatar
-  //const [avatar, setAvatar] = useState('');
+  const [avatar, setAvatar] = useState('');
   const updateAvatar = (avatar) => {
+    setAvatar(avatar)
     setUser({ ...user, photo: avatar });
+    ls.set('obj', { ...user, photo: avatar });
+
   }
   //fin Avatar
   const [user, setUser] = useState(
