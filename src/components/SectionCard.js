@@ -28,7 +28,7 @@ const SectionCard = (props) => {
           </a>
           <a
             className="js_card_linkedin"
-            href={props.valueLinkedin}
+            href={`www.linkedin.com/in/${props.valueLinkedin}`}
             target="_blank"
             rel="noreferrer"
           >
