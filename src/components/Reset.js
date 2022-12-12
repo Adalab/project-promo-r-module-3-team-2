@@ -1,4 +1,4 @@
-import "../styles/components/Reset.scss";
+import '../styles/components/Reset.scss';
 
 const Reset = (props) => {
   return (

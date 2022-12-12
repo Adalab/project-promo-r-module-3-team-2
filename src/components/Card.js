@@ -15,6 +15,8 @@ const Card = () => {
   const [avatar, setAvatar] = useState('');
   const updateAvatar = (avatar) => {
     setAvatar(avatar);
+    setUser({ ...user, photo: avatar });
+    ls.set('obj', { ...user, photo: avatar });
   };
   //fin Avatar
   const [user, setUser] = useState(
@@ -26,7 +28,7 @@ const Card = () => {
       email: '',
       linkedin: '',
       github: '',
-      photo: { avatar },
+      photo: '',
     })
   );
 
@@ -91,7 +93,7 @@ const Card = () => {
       setArrowRotateShare('');
     }
   };
-
+  console.log(typeof avatar);
   const handleToggleShare = () => {
     // if (shareIsOpen === false) {
     setShareIsOpen(!shareIsOpen);
@@ -117,7 +119,7 @@ const Card = () => {
           valueEmail={user.email}
           valueLinkedin={user.linkedin}
           valueGithub={user.github}
-          avatar={avatar}
+          avatar={user.photo}
           updateAvatar={updateAvatar}
         ></SectionCard>
 
@@ -148,7 +150,7 @@ const Card = () => {
             src={scrollDown}
             arrowState={arrowRotateFill}
             reponse={fetchResponse}
-            avatar={avatar}
+            avatar={user.photo}
             updateAvatar={updateAvatar}
           />
 

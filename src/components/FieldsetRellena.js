@@ -79,7 +79,7 @@ const FieldsetRellena = (props) => {
           </label>
 
           <GetAvatar
-            // handleInput={props.handleInput}
+            handleInput={props.handleInput}
             avatar={props.avatar}
             updateAvatar={props.updateAvatar}
           />
