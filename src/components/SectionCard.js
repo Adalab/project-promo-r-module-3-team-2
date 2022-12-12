@@ -36,7 +36,7 @@ const SectionCard = (props) => {
           </a>
           <a
             className="js_card_github"
-            href={props.valueGithub}
+            href={`https://github.com/${props.valueGithub}`}
             target="_blank"
             rel="noreferrer"
           >
