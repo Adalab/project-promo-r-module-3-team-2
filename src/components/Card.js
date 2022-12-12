@@ -50,6 +50,7 @@ const Card = () => {
 
   const handleReset = (event) => {
     event.preventDefault();
+    setAvatar('');
     setUser({
       palette: '1',
       name: '',
