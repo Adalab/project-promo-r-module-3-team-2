@@ -14,11 +14,10 @@ const Card = () => {
   //Avatar
   const [avatar, setAvatar] = useState('');
   const updateAvatar = (avatar) => {
-    setAvatar(avatar)
+    setAvatar(avatar);
     setUser({ ...user, photo: avatar });
     ls.set('obj', { ...user, photo: avatar });
-
-  }
+  };
   //fin Avatar
   const [user, setUser] = useState(
     ls.get('obj', {
@@ -93,7 +92,7 @@ const Card = () => {
       setArrowRotateShare('');
     }
   };
-  console.log(typeof (avatar))
+  console.log(typeof avatar);
   const handleToggleShare = () => {
     // if (shareIsOpen === false) {
     setShareIsOpen(!shareIsOpen);
