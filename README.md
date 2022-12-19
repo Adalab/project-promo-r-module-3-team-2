@@ -1,6 +1,7 @@
 # Proyecto 3. Un caso de código heredado
 
 Ahoy! 👋🏼 En este repositorio podréis encontrar los ficheros generados en la realización del **proyecto final del Módulo 3 - Promo Radia**.
+> **NOTA:** Enlace directo al poyecto pulsando **[aquí](https://beta.adalab.es/project-promo-r-module-3-team-2/)**
 
 ## Autoras👩🏻‍💻:
 En la realización de este proyecto han participado: 
