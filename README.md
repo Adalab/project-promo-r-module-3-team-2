@@ -41,7 +41,7 @@ La **finalidad** de este proyecto es trabajar con el **código heredado** de otr
 - **Gestión de eventos** en cada componente.
 - **[Adalab - Web starter kit](https://github.com/Adalab/Adalab-web-starter-kit)**.
 
-### Organizando el código:
+### Organización del código:
 
 Es importante tener en cuenta que la organización del código en este repositorio está dividida en distintos **partials**. 
 
